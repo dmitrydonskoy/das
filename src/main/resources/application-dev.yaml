@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: ${db_url}
+    username: "postgres"
+    password: "postgres"
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: validate
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use_jdbc_metadata_defaults: false
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+  doc:
+    swager-ui:
+      enabled: true
+      version: 3.1.0
+    api-docs:
+      version: openapi.3.1
+  logging:
+    level:
+      org.springframework.web: DEBUG
+      org.hibernate.SQL: DEBUG
+      org.springframework.jdbc.datasource.DriverManagerDataSource: DEBUG
