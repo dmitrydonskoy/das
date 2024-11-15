@@ -15,14 +15,22 @@ spring:
           use_jdbc_metadata_defaults: false
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.yaml
-  doc:
-    swager-ui:
-      enabled: true
-      version: 3.1.0
-    api-docs:
-      version: openapi.3.1
+
   logging:
     level:
       org.springframework.web: DEBUG
       org.hibernate.SQL: DEBUG
       org.springframework.jdbc.datasource.DriverManagerDataSource: DEBUG
+
+  springdoc:
+    api-docs:
+      path: /client/v3/api-docs
+    swagger-ui:
+      path: /client/swagger-ui.html
+
+  openapi:
+    service:
+      title: client doc
+      version: 1.0.0
+      url: http://localhost:8080
+
