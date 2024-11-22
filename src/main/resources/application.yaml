@@ -1,0 +1,35 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/beatysalon
+    username: "postgres"
+    password: "postgres"
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: validate
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use_jdbc_metadata_defaults: false
+
+  logging:
+    level:
+      org.springframework.web: DEBUG
+      org.hibernate.SQL: DEBUG
+      org.springframework.jdbc.datasource.DriverManagerDataSource: DEBUG
+
+  springdoc:
+    api-docs:
+      path: /report/v3/api-docs
+    swagger-ui:
+      path: /report/swagger-ui.html
+
+  openapi:
+    service:
+      title: report doc
+      version: 1.0.0
+      url: http://localhost:8081
