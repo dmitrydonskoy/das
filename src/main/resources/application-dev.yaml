@@ -34,3 +34,6 @@ spring:
       version: 1.0.0
       url: http://localhost:8080
 
+second:
+  service:
+    url: http://report-service:8081

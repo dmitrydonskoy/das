@@ -11,14 +11,14 @@ import java.util.List;
 @RequestMapping("/report")
 public class ReportController {
 
-    @Autowired
-    private final ClientService clientService;
+    private final ReportService reportService;
 
-    public ReportController(ClientService clientService) {
-        this.clientService = clientService;
+    public ReportController(ReportService reportService) {
+        this.reportService = reportService;
     }
-    @GetMapping
-    public List<ClientDTO> getAllClients() {
-        return clientService.getAllClients();
+
+    @GetMapping("/report")
+    public List<?> getReport() {
+        return reportService.getReportData();
     }
 }
