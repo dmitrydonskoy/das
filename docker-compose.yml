@@ -36,6 +36,16 @@ services:
       backend:
         aliases:
           - "gateway"
+  report:
+    image: reportservice-report
+    ports:
+
+      - "8081:8081"
+
+    networks:
+      backend:
+        aliases:
+          - "reportService"
 
 networks:
   backend:
